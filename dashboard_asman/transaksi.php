@@ -205,48 +205,51 @@ $running_number = $new_running_number_formatted . '/PPKO/' . $year_month;
                                                         <p> Disetujui Asman: <span><?= $data['tgl_PAsmen'] ?></span> &#8594;
                                                             Disetujui Manager GA: <span><?= $data['tgl_PSpv'] ?></span> &#8594;
                                                             Peminjaman Selesai: <span><?= $data['tgl_selesai'] ?></span></p>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <ul class="list-group list-group-flush">
-                                                                    <li class="list-group-item"><strong>Nama Pengaju:</strong> <?= $data['nama'] ?></li>
-                                                                    <li class="list-group-item"><strong>NIK:</strong> <?= $data['id_author'] ?></li>
-                                                                    <li class="list-group-item"><strong>Nama Divisi:</strong> <?= $data['nama_divisi'] ?></li>
-                                                                    <li class="list-group-item"><strong>Kode Transaksi:</strong> <?= $data['kd_transaksi'] ?></li>
-                                                                    <li class="list-group-item"><strong>Tujuan:</strong> <?= $data['tujuan'] ?></li>
-                                                                    <li class="list-group-item"><strong>Bukti:</strong>
-                                                                        <?php if (strpos($data['bukti'], ".jpg") !== false || strpos($data['bukti'], ".jpeg") !== false || strpos($data['bukti'], ".png") !== false) { ?>
-                                                                            <a href="/percobaan/assets/img/<?= $data['bukti'] ?>" target="_blank">
-                                                                                <img src="/percobaan/assets/img/<?= $data['bukti'] ?>" width="50">
-                                                                            </a>
-                                                                        <?php } else {
-                                                                            echo "Tidak Ada Bukti";
-                                                                        }
-                                                                        ?>
-                                                                    </li>
-                                                                    <li class="list-group-item"><strong>Keperluan:</strong> <?= $data['keperluan'] ?></li>
-                                                                    <li class="list-group-item"><strong>Tgl Rencana Pergi:</strong> <?= $data['waktu_pergi'] ?></li>
-                                                                    <li class="list-group-item"><strong>Tgl Rencana Kembali:</strong> <?= $data['waktu_kembali'] ?></li>
-                                                                </ul>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <ul class="list-group list-group-flush">
+                                                                        <li class="list-group-item"><strong>Nama Pengaju:</strong> <?= $data['nama'] ?></li>
+                                                                        <li class="list-group-item"><strong>NIK:</strong> <?= $data['id_author'] ?></li>
+                                                                        <li class="list-group-item"><strong>Nama Divisi:</strong> <?= $data['nama_divisi'] ?></li>
+                                                                        <li class="list-group-item"><strong>Kode Transaksi:</strong> <?= $data['kd_transaksi'] ?></li>
+                                                                        <li class="list-group-item"><strong>Tujuan:</strong> <?= $data['tujuan'] ?></li>
+                                                                        <li class="list-group-item"><strong>Bukti:</strong>
+                                                                            <?php if (strpos($data['bukti'], ".jpg") !== false || strpos($data['bukti'], ".jpeg") !== false || strpos($data['bukti'], ".png") !== false) { ?>
+                                                                                <a href="/percobaan/assets/img/<?= $data['bukti'] ?>" target="_blank">
+                                                                                    <img src="/percobaan/assets/img/<?= $data['bukti'] ?>" width="50">
+                                                                                </a>
+                                                                            <?php } else {
+                                                                                echo "Tidak Ada Bukti";
+                                                                            }
+                                                                            ?>
+                                                                        </li>
+                                                                        <li class="list-group-item"><strong>Keperluan:</strong> <?= $data['keperluan'] ?></li>
+                                                                        <li class="list-group-item"><strong>Tgl Rencana Pergi:</strong> <?= $data['waktu_pergi'] ?></li>
+                                                                        <li class="list-group-item"><strong>Tgl Rencana Kembali:</strong> <?= $data['waktu_kembali'] ?></li>
+                                                                        <li class="list-group-item"><strong>Nomor HP:</strong> <?= $data['no_hp'] ?></li>
+                                                                        <li class="list-group-item"><strong>Nama yang Berpergian:</strong> <?= $data['nama_bp'] ?></li>
+                                                                        <li class="list-group-item"><strong>Keterangan:</strong> <?= $data['keterangan'] ?></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <ul class="list-group list-group-flush">
+                                                                        <li class="list-group-item"><strong>Nama Kendaraan:</strong> <?php echo $nama_kendaraan; ?></li>
+                                                                        <li class="list-group-item"><strong>Merk Kendaraan:</strong> <?php echo $merk_kendaraan; ?></li>
+                                                                        <li class="list-group-item"><strong>Plat Nomor:</strong> <?php echo $plat_nomor; ?></li>
+                                                                        <li class="list-group-item"><strong>Nama Dan No HP Supir:</strong> <?= $data['supir'] ?></li>
+                                                                        <li class="list-group-item"><strong>Saldo Awal:</strong> Rp. <?= number_format($data['uang_jalan'], 0, ',', '.') ?></li>
+                                                                        <li class="list-group-item"><strong>Biaya Perjalanan:</strong> Rp. <?= number_format($data['total_biaya'], 0, ',', '.') ?></li>
+                                                                        <li class="list-group-item"><strong>Sisa Saldo:</strong> Rp. <?= number_format($data['sisa_saldo'], 0, ',', '.') ?></li>
+                                                                        <li class="list-group-item"><strong>Tanggal Berangkat:</strong> <?= $data['tgl_pergi'] ?></li>
+                                                                        <li class="list-group-item"><strong>Tanggal Kembali:</strong> <?= $data['tgl_kembali'] ?></li>
+                                                                        <li class="list-group-item"></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <!-- <button type="button" class="btn btn-primary" onclick="printModalContent()">Cetak</button> -->
+                                                                    <a href="../cetak2.php?id=<?php echo $data['id_pengajuan']; ?>" target="_blank">Cetak PDF</a>
+                                                                </div>
                                                             </div>
-                                                            <div class="col-md-6">
-                                                                <ul class="list-group list-group-flush">
-                                                                    <li class="list-group-item"><strong>Nomor HP:</strong> <?= $data['no_hp'] ?></li>
-                                                                    <li class="list-group-item"><strong>Nama yang Berpergian:</strong> <?= $data['nama_bp'] ?></li>
-                                                                    <li class="list-group-item"><strong>Keterangan:</strong> <?= $data['keterangan'] ?></li>
-                                                                    <li class="list-group-item"><strong>Nama Kendaraan:</strong> <?php echo $nama_kendaraan; ?></li>
-                                                                    <li class="list-group-item"><strong>Merk Kendaraan:</strong> <?php echo $merk_kendaraan; ?></li>
-                                                                    <li class="list-group-item"><strong>Plat Nomor:</strong> <?php echo $plat_nomor; ?></li>
-                                                                    <li class="list-group-item"><strong>Nama Dan No HP Supir:</strong> <?= $data['supir'] ?></li>
-                                                                    <li class="list-group-item"><strong>Biaya Perjalanan:</strong> Rp. <?= number_format($data['total_biaya'], 0, ',', '.') ?></li>
-                                                                    <li class="list-group-item"><strong>Tanggal Berangkat:</strong> <?= $data['tgl_pergi'] ?></li>
-                                                                    <li class="list-group-item"><strong>Tanggal Kembali:</strong> <?= $data['tgl_kembali'] ?></li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <!-- <button type="button" class="btn btn-primary" onclick="printModalContent()">Cetak</button> -->
-                                                                <a href="../cetak2.php?id=<?php echo $data['id_pengajuan']; ?>" target="_blank">Cetak PDF</a>
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

@@ -213,7 +213,7 @@ $running_number = $new_running_number_formatted . '/PPKO/' . $year_month;
                                                                     <p>Biaya Perjalanan =</p>
                                                                     <div class="mb-3">
                                                                         <label for="tujuan">Biaya Bensin:</label>
-                                                                        <input type="text" id="" name="id_pengajuan" class="form-control " value="<?= $data['id_pengajuan'] ?>" readonly />
+                                                                        <input type="text" id="" name="id_pengajuan" class="form-control " value="<?= $data['id_pengajuan'] ?>" hidden readonly />
                                                                         <input type="number" name="biayaBensin" id="biayaBensin<?= $no ?>" class="form-control">
                                                                         <input type="text" id="" name="tgl_selesai" class="form-control" value="<?php echo $tgl_PSpv = date("Y-m-d"); ?>" hidden readonly />
                                                                     </div>

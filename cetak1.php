@@ -46,7 +46,9 @@
                 <th>Merk Kendaraan</th>
                 <th>Plat Nomor</th>
                 <th>Supir</th>
+                <th>Saldo Awal</th>
                 <th>Biaya Perjalanan</th>
+                <th>Sisa Saldo</th>
                 <th>Status</th>
                 <th>Tanggal Pergi</th>
                 <th>Tanggal Kembali</th>
@@ -87,7 +89,9 @@
                     <td><?php echo $data['merk_kendaraan'] ?></td>
                     <td><?php echo $data['plat_nomor'] ?></td>
                     <td><?php echo $data['supir'] ?></td>
+                    <td><?php echo 'Rp ' . number_format($data['uang_jalan'], 2, ',', '.'); ?></td>
                     <td><?php echo 'Rp ' . number_format($data['total_biaya'], 2, ',', '.'); ?></td>
+                    <td><?php echo 'Rp ' . number_format($data['sisa_saldo'], 2, ',', '.'); ?></td>
                     <td><?php echo $data['status'] ?></td>
                     <td><?php echo $data['tgl_pergi'] ?></td>
                     <td><?php echo $data['tgl_kembali'] ?></td>
