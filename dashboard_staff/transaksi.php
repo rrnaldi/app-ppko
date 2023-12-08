@@ -107,7 +107,7 @@ $running_number = $new_running_number_formatted . '/PPKO/' . $year_month;
                             Form Pengajuan Peminjaman Kendaraan
                         </div>
                         <div class="card-body">
-                        
+
                             <div style="overflow-x: auto;">
                                 <table id="datatablesSimple" class="table table-bordered table-striped table-hover">
                                     <thead>
@@ -228,13 +228,13 @@ $running_number = $new_running_number_formatted . '/PPKO/' . $year_month;
                                                                             ?>
                                                                         </li>
                                                                         <li class="list-group-item"><strong>Keperluan:</strong> <?= $data['keperluan'] ?></li>
-                                                                        <li class="list-group-item"><strong>Tanggal Berangkat:</strong> <?= $data['waktu_pergi'] ?></li>
+                                                                        <li class="list-group-item"><strong>Tgl Rencana Pergi:</strong> <?= $data['waktu_pergi'] ?></li>
 
                                                                     </ul>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <ul class="list-group list-group-flush">
-                                                                        <li class="list-group-item"><strong>Tanggal Kembali:</strong> <?= $data['waktu_kembali'] ?></li>
+                                                                        <li class="list-group-item"><strong>Tgl Rencana Kembali:</strong> <?= $data['waktu_kembali'] ?></li>
                                                                         <li class="list-group-item"><strong>Nomor HP:</strong> <?= $data['no_hp'] ?></li>
                                                                         <li class="list-group-item"><strong>Nama yang Berpergian:</strong> <?= $data['nama_bp'] ?></li>
                                                                         <li class="list-group-item"><strong>Keterangan:</strong> <?= $data['keterangan'] ?></li>

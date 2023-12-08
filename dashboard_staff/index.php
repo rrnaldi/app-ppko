@@ -124,8 +124,8 @@ $running_number = $new_running_number_formatted . '/PPKO/' . $year_month;
                                             <th>Tujuan</th>
                                             <th>Keperluan</th>
                                             <th>Bukti</th>
-                                            <th>Waktu Pergi</th>
-                                            <th>Waktu Kembali</th>
+                                            <th>Tanggal Rencana Pergi</th>
+                                            <th>Tanggal Rencana Kembali</th>
                                             <th>No HP</th>
                                             <th>Nama Yang Berpergian</th>
                                             <th>Keterangan</th>
@@ -181,7 +181,10 @@ $running_number = $new_running_number_formatted . '/PPKO/' . $year_month;
                                                     echo $data['tgl_PAsmen'] ?>
                                                 <?php } elseif ($data['status'] == 'Peminjaman Selesai') {
                                                     echo $data['tgl_selesai'] ?>
-                                                <?php }  ?></td>
+                                                <?php } elseif ($data['status'] == 'Disetujui Security') {
+                                                    echo $data['tgl_pergi'] ?>
+                                                <?php } ?>
+                                            </td>
                                             <td>
                                                 <?php if ($data['status'] == 'Telah Diajukan') {
                                                     echo $data['status'];
@@ -234,13 +237,13 @@ $running_number = $new_running_number_formatted . '/PPKO/' . $year_month;
                                                                             ?>
                                                                         </li>
                                                                         <li class="list-group-item"><strong>Keperluan:</strong> <?= $data['keperluan'] ?></li>
-                                                                        <li class="list-group-item"><strong>Tanggal Berangkat:</strong> <?= $data['waktu_pergi'] ?></li>
+                                                                        <li class="list-group-item"><strong>Tgl Rencana Pergi:</strong> <?= $data['waktu_pergi'] ?></li>
 
                                                                     </ul>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <ul class="list-group list-group-flush">
-                                                                        <li class="list-group-item"><strong>Tanggal Kembali:</strong> <?= $data['waktu_kembali'] ?></li>
+                                                                        <li class="list-group-item"><strong>Tgl Rencana Kembali:</strong> <?= $data['waktu_kembali'] ?></li>
                                                                         <li class="list-group-item"><strong>Nomor HP:</strong> <?= $data['no_hp'] ?></li>
                                                                         <li class="list-group-item"><strong>Nama yang Berpergian:</strong> <?= $data['nama_bp'] ?></li>
                                                                         <li class="list-group-item"><strong>Keterangan:</strong> <?= $data['keterangan'] ?></li>

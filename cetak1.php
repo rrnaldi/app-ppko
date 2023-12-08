@@ -32,8 +32,8 @@
                 <th>Tujuan</th>
                 <th>Keperluan</th>
                 <th>Bukti</th>
-                <th>Tanggal Berangkat</th>
-                <th>Tanggal Kembali</th>
+                <th>Tanggal Rencana Pergi</th>
+                <th>Tanggal Rencana Kembali</th>
                 <th>Nomor HP</th>
                 <th>Nama Yang Berpergian</th>
                 <th>Keterangan</th>
@@ -48,6 +48,8 @@
                 <th>Supir</th>
                 <th>Biaya Perjalanan</th>
                 <th>Status</th>
+                <th>Tanggal Pergi</th>
+                <th>Tanggal Kembali</th>
             </tr>
             <?php
             $no = 1;
@@ -87,6 +89,8 @@
                     <td><?php echo $data['supir'] ?></td>
                     <td><?php echo 'Rp ' . number_format($data['total_biaya'], 2, ',', '.'); ?></td>
                     <td><?php echo $data['status'] ?></td>
+                    <td><?php echo $data['tgl_pergi'] ?></td>
+                    <td><?php echo $data['tgl_kembali'] ?></td>
                 </tr>
             <?php
             }

@@ -8,7 +8,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 session_start();
 
 // Query database untuk mengambil semua data dari tabel pengajuan
-$query = "SELECT p.*, k.*, u.* FROM pengajuan p JOIN kendaraan k, user u WHERE p.id_author = u.nik AND p.kendaraan_id = k.id_kendaraan AND p.status = 'Peminjaman Selesai'" ;
+$query = "SELECT p.*, k.*, u.* FROM pengajuan p JOIN kendaraan k, user u WHERE p.id_author = u.nik AND p.kendaraan_id = k.id_kendaraan AND p.status = 'Peminjaman Selesai'";
 $result = mysqli_query($koneksi, $query);
 
 if ($result && mysqli_num_rows($result) > 0) {
@@ -56,8 +56,8 @@ if ($result && mysqli_num_rows($result) > 0) {
         $sheet->setCellValue('F' . $row, $data['tujuan']);
         $sheet->setCellValue('G' . $row, $data['keperluan']);
         $sheet->setCellValue('H' . $row, $data['bukti']);
-        $sheet->setCellValue('I' . $row, $data['waktu_pergi']);
-        $sheet->setCellValue('J' . $row, $data['waktu_kembali']);
+        $sheet->setCellValue('I' . $row, $data['tgl_pergi']);
+        $sheet->setCellValue('J' . $row, $data['tgl_kembali']);
         $sheet->setCellValue('K' . $row, $data['no_hp']);
         $sheet->setCellValue('L' . $row, $data['nama_bp']);
         $sheet->setCellValue('M' . $row, $data['keterangan']);

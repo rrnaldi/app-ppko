@@ -54,6 +54,7 @@ include "koneksi.php";
                                                 <option value="Umum">Umum</option>
                                                 <option value="Asman">Asman</option>
                                                 <option value="ManagerGA">ManagerGA</option>
+                                                <option value="Security">Security</option>
                                             </select>
                                         </div>
                                         <div class="modal-footer d-flex align-items-center justify-content-center small">

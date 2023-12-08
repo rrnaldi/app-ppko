@@ -141,7 +141,7 @@ $running_number = $new_running_number_formatted . '/PPKO/' . $year_month;
                                     $getdivisi = mysqli_query($koneksi, "select nik, nama_divisi, nama from user WHERE nik='$nik' ");
                                     // menghitung jumlah data yang ditemukan
                                     $datadivisi = mysqli_fetch_array($getdivisi);
-                                    $tampil = mysqli_query($koneksi, "SELECT p.*, u.* FROM pengajuan p  JOIN user u on u.nik= p.id_author  WHERE p.status='Disetujui Manager GA' ORDER BY id_pengajuan DESC");
+                                    $tampil = mysqli_query($koneksi, "SELECT p.*, u.* FROM pengajuan p  JOIN user u on u.nik= p.id_author  WHERE p.status='Disetujui Security' ORDER BY id_pengajuan DESC");
                                     while ($data = mysqli_fetch_array($tampil)) :
                                     ?>
 
@@ -172,7 +172,7 @@ $running_number = $new_running_number_formatted . '/PPKO/' . $year_month;
                                             <td><?= $data['nama_bp'] ?></td>
                                             <td><?= $data['keterangan'] ?></td>
                                             <td>
-                                                <?php if ($data['status'] == 'Disetujui Manager GA') {
+                                                <?php if ($data['status'] == 'Disetujui Security') {
                                                     echo $data['status'] ?>
                                                     <a href="#" style="text-decoration: none;" class="badge text-bg-danger" data-bs-toggle="modal" data-bs-target="#modalSelesai<?= $no ?>">Selesai</a>
                                                 <?php } else {

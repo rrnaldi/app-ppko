@@ -183,7 +183,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     <p class="card-text">
                                         <?php
-                                        $query_manager = mysqli_query($koneksi, "SELECT * FROM pengajuan WHERE status = 'Disetujui Manager GA'");
+                                        $query_manager = mysqli_query($koneksi, "SELECT * FROM pengajuan WHERE status = 'Disetujui Security'");
                                         $jumlah_manager = mysqli_num_rows($query_manager);
                                         echo "<h5 class='card-text'>" . $jumlah_manager . "</h5>";
                                         ?>

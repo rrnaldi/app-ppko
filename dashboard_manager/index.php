@@ -99,8 +99,8 @@ include "../koneksi.php";
                                             <th>Tujuan</th>
                                             <th>Keperluan</th>
                                             <th>Bukti</th>
-                                            <th>Waktu Pergi</th>
-                                            <th>Waktu Kembali</th>
+                                            <th>Tanggal Rencana Pergi</th>
+                                            <th>Tanggal Rencana Kembali</th>
                                             <th>No HP</th>
                                             <th>Nama Yang Berpergian</th>
                                             <th>Keterangan</th>

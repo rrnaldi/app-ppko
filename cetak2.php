@@ -49,8 +49,8 @@
                     ?>
                 </li>
                 <li class="list-group-item"><strong>Keperluan:</strong> <?= $data['keperluan'] ?></li>
-                <li class="list-group-item"><strong>Tanggal Berangkat:</strong> <?= $data['waktu_pergi'] ?></li>
-                <li class="list-group-item"><strong>Tanggal Kembali:</strong> <?= $data['waktu_kembali'] ?></li>
+                <li class="list-group-item"><strong>Tgl Rencana Pergi:</strong> <?= $data['waktu_pergi'] ?></li>
+                <li class="list-group-item"><strong>Tgl Rencana Kembali:</strong> <?= $data['waktu_kembali'] ?></li>
                 <li class="list-group-item"><strong>Nomor HP:</strong> <?= $data['no_hp'] ?></li>
                 <li class="list-group-item"><strong>Nama yang Berpergian:</strong> <?= $data['nama_bp'] ?></li>
                 <li class="list-group-item"><strong>Keterangan:</strong> <?= $data['keterangan'] ?></li>
@@ -61,6 +61,8 @@
                 <li class="list-group-item"><strong>Saldo Awal:</strong> Rp. <?= number_format($data['uang_jalan'], 0, ',', '.') ?></li>
                 <li class="list-group-item"><strong>Biaya Perjalanan:</strong> Rp. <?= number_format($data['total_biaya'], 0, ',', '.') ?></li>
                 <li class="list-group-item"><strong>Sisa Saldo:</strong> Rp. <?= number_format($data['sisa_saldo'], 0, ',', '.') ?></li>
+                <li class="list-group-item"><strong>Tanggal Berangkat:</strong> <?= $data['tgl_pergi'] ?></li>
+                <li class="list-group-item"><strong>Tanggal Kembali:</strong> <?= $data['tgl_kembali'] ?></li>
             </ul>
     <?php
         } else {

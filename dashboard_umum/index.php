@@ -38,7 +38,7 @@ include "../koneksi.php";
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-primary">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="index.php">
-            Dashboard Dep GA
+            Dashboard Dept GA
         </a>
         <?php
         $nik = $_SESSION['nik'];
@@ -99,8 +99,8 @@ include "../koneksi.php";
                                             <th>Tujuan</th>
                                             <th>Keperluan</th>
                                             <th>Bukti</th>
-                                            <th>Waktu Pergi</th>
-                                            <th>Waktu Kembali</th>
+                                            <th>Tgl Rencana Pergi</th>
+                                            <th>Tgl Rencana Kembali</th>
                                             <th>No HP</th>
                                             <th>Nama Yang Berpergian</th>
                                             <th>Keterangan</th>

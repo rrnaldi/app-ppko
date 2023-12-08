@@ -3,7 +3,7 @@
 session_start();
 
 // cek apakah yang mengakses halaman ini sudah login
-if ($_SESSION['level'] !== "Asman") {
+if ($_SESSION['level'] !== "Security") {
     header("location:../index.php?pesan=gagal");
 }
 include "../koneksi.php";
@@ -36,7 +36,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Dashboard - Asman</title>
+    <title>Dashboard - Security</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="../css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -59,7 +59,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-primary">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="index.php">
-            Dashboard Asman
+            Dashboard Security
         </a>
         <?php
         $nik = $_SESSION['nik'];
@@ -103,7 +103,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                     <div class="row">
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-primary fw-bold text-white mb-4">
-                                <div class="card-body">Approval Manager Bidang</div>
+                                <div class="card-body">Approval Manager</div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
                                     <a class="small text-white stretched-link" href="#">View Details</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -119,7 +119,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                         </div>
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-danger fw-bold text-white mb-4">
-                                <div class="card-body">Menunggu Diterima Bidang Umum</div>
+                                <div class="card-body">Menunggu Diterima Departemen GA</div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
                                     <a class="small text-white stretched-link" href="#">View Details</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -137,7 +137,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                             <div class="card bg-success fw-bold text-white mb-4">
                                 <div class="card-body">Approval Asmen</div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="index.php">View Details</a>
+                                    <a class="small text-white stretched-link" href="#">View Details</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     <p class="card-text">
                                         <?php
@@ -167,29 +167,13 @@ while ($row = mysqli_fetch_assoc($result)) {
                         </div>
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-primary fw-bold text-white mb-4">
-                                <div class="card-body">Data Selesai Peminjaman</div>
+                                <div class="card-body">Approval Security</div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="PSelesai.php">View Details</a>
+                                    <a class="small text-white stretched-link" href="index.php">View Details</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     <p class="card-text">
                                         <?php
-                                        $query_manager = mysqli_query($koneksi, "SELECT * FROM pengajuan WHERE status = 'Disetujui Security'");
-                                        $jumlah_manager = mysqli_num_rows($query_manager);
-                                        echo "<h5 class='card-text'>" . $jumlah_manager . "</h5>";
-                                        ?>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card bg-danger fw-bold text-white mb-4">
-                                <div class="card-body">Data Transaksi</div>
-                                <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="transaksi.php">View Details</a>
-                                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    <p class="card-text">
-                                        <?php
-                                        $query_manager = mysqli_query($koneksi, "SELECT * FROM pengajuan WHERE status = 'Peminjaman Selesai'");
+                                        $query_manager = mysqli_query($koneksi, "SELECT * FROM pengajuan WHERE status = 'Disetujui Manager GA'");
                                         $jumlah_manager = mysqli_num_rows($query_manager);
                                         echo "<h5 class='card-text'>" . $jumlah_manager . "</h5>";
                                         ?>
@@ -203,7 +187,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <i class="fas fa-chart-area me-1"></i>
-                                    Pengeluaran Biaya PPKO
+                                    Area Chart PPKO
                                 </div>
                                 <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
                             </div>
@@ -212,7 +196,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <i class="fas fa-chart-pie me-1"></i>
-                                    Data Status Pengajuan PPKO
+                                    Pie Chart PPKO
                                 </div>
                                 <div class="card-body"><canvas id="myPieChart" width="100%" height="40"></canvas></div>
                             </div>
@@ -222,11 +206,12 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-chart-bar me-1"></i>
-                                Data Jumlah Pengajuan PPKO
+                                Bar Chart PPKO
                             </div>
                             <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
                         </div>
                     </div>
+
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
@@ -317,6 +302,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         }
     });
 </script>
+
 <?php
 $query = "SELECT DATE_FORMAT(tgl_pengajuan, '%M') AS bulan1, COUNT(*) AS jumlah_pengajuan, 
 SUM(CASE WHEN status = 'Telah Diajukan' THEN 1 ELSE 0 END) AS diajukan,
@@ -404,8 +390,6 @@ $data_selesai[] = $data_status['selesai'];
         }
     });
 </script>
-
-
 
 
 

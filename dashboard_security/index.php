@@ -1,7 +1,7 @@
 <?php
 //panggil koneksi php
 session_start();
-if ($_SESSION['level'] !== "Admin") {
+if ($_SESSION['level'] !== "Security") {
     header("location:../index.php?pesan=gagal");
 }
 include "../koneksi.php";
@@ -15,7 +15,7 @@ include "../koneksi.php";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Dashboard - Admin</title>
+    <title>Dashboard - Security </title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="../css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -38,7 +38,7 @@ include "../koneksi.php";
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-primary">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="index.php">
-            Dashboard Admin
+            Dashboard Security
         </a>
         <?php
         $nik = $_SESSION['nik'];
@@ -70,14 +70,6 @@ include "../koneksi.php";
                             <div class="sb-nav-link-icon text-white"><i class="fas fa-tachometer-alt "></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link text-white" href="datakendaraan.php">
-                            <div class="sb-nav-link-icon text-white"><i class="fas fa-automobile"></i></div>
-                            Data Kendaraan
-                        </a>
-                        <a class="nav-link text-white" href="tambahakun.php">
-                            <div class="sb-nav-link-icon text-white"><i class="fas fa-user-circle"></i></div>
-                            Data User
-                        </a>
             </nav>
         </div>
         <div id="layoutSidenav_content">
@@ -107,8 +99,8 @@ include "../koneksi.php";
                                             <th>Tujuan</th>
                                             <th>Keperluan</th>
                                             <th>Bukti</th>
-                                            <th>Tanggal Rencana Pergi</th>
-                                            <th>Tanggal Rencana Kembali</th>
+                                            <th>Tgl Rencana Pergi</th>
+                                            <th>Tgl Rencana Kembali</th>
                                             <th>No HP</th>
                                             <th>Nama Yang Berpergian</th>
                                             <th>Keterangan</th>
@@ -118,15 +110,16 @@ include "../koneksi.php";
 
                                     <?php
                                     //menampilkan data
-                                    $nama_divisi = $datanama['nama_divisi'];
                                     $no = 1;
                                     $nik = $_SESSION['nik'];
                                     $getdivisi = mysqli_query($koneksi, "select nik, nama_divisi, nama from user WHERE nik='$nik' ");
                                     // menghitung jumlah data yang ditemukan
                                     $datadivisi = mysqli_fetch_array($getdivisi);
-                                    $tampil = mysqli_query($koneksi, "SELECT p.*, u.* FROM pengajuan p  JOIN user u on u.nik= p.id_author WHERE p.status='Diterima Departemen GA' ORDER BY id_pengajuan DESC");
+                                    $tampil = mysqli_query($koneksi, "SELECT p.*, u.* FROM pengajuan p  JOIN user u on u.nik= p.id_author  WHERE p.status='Disetujui Manager GA' ORDER BY id_pengajuan DESC");
                                     while ($data = mysqli_fetch_array($tampil)) :
                                     ?>
+
+
 
                                         <tr>
                                             <td><?= $no++ ?></td>
@@ -152,21 +145,21 @@ include "../koneksi.php";
                                             <td><?= $data['no_hp'] ?></td>
                                             <td><?= $data['nama_bp'] ?></td>
                                             <td><?= $data['keterangan'] ?></td>
-                                            <td>
-                                                <?php if ($data['status'] == 'Diterima Departemen GA') {
-                                                    echo $data['status'] ?>
+                                            <td> <?php if ($data['status'] == 'Disetujui Manager GA') {
+                                                        echo $data['status'] ?>
                                                     <a href="#" style="text-decoration: none;" class="badge text-bg-primary" data-bs-toggle="modal" data-bs-target="#modalDetail<?= $no ?>">Detail</a>
                                                 <?php } else {
-                                                    echo $data['status'];
-                                                } ?>
+                                                        echo $data['status'];
+                                                    } ?>
                                             </td>
                                         </tr>
                                         <?php
                                         //menampilkan data nama
-                                        $sql = mysqli_query($koneksi, "SELECT * FROM user WHERE nik='$nik'");
+                                        $sql = mysqli_query($koneksi, "SELECT * FROM kendaraan WHERE id_kendaraan = '$data[kendaraan_id]' ORDER BY id_kendaraan ");
                                         $data_sql = mysqli_fetch_array($sql);
-                                        $nama = $data_sql['nama'];
-                                        $nama_divisi = $data_sql['nama_divisi'];
+                                        @$nama_kendaraan = $data_sql['nama_kendaraan'];
+                                        @$merk_kendaraan = $data_sql['merk_kendaraan'];
+                                        @$plat_nomor = $data_sql['plat_nomor'];
                                         ?>
                                         <!-- Awal Modal Detail -->
                                         <div class="modal fade modal-lg" id="modalDetail<?= $no ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -187,7 +180,6 @@ include "../koneksi.php";
                                                                         <input type="text" id="" name="id_pengajuan" class="form-control " value="<?= $data['id_pengajuan'] ?>" hidden readonly />
                                                                         <input type="text" id="" name="id_author" class="form-control " value="<?= $data['id_author'] ?>" hidden readonly />
                                                                         <input type="text" id="" name="tgl_pengajuan" class="form-control" value="<?= $data['tgl_pengajuan'] ?>" readonly />
-                                                                        <input type="text" id="" name="tgl_PSpv" class="form-control" value="<?php echo $tgl_PSpv = date("Y-m-d"); ?>" hidden readonly />
                                                                     </div>
                                                                     <div class="mb-3">
                                                                         <label for="tujuan">Kode Transaksi:</label>
@@ -225,40 +217,38 @@ include "../koneksi.php";
                                                                             ?>
                                                                         </li>
                                                                     </div>
+                                                                    <div class="mb-3">
+                                                                           <label for="nohp">Nomor HP:</label>
+                                                                           <input type="text" id="no_hp" name="no_hp"  value="<?= $data['no_hp'] ?>" class="form-control" required readonly/>
                                                                     </div>
-                                                    <!--grid kiri -->
-                                                    <div class="col-md-6">
-                                                       
-                                                        <div class="mb-3">
-                                                            <label for="nohp">Nomor HP:</label>
-                                                            <input type="text" id="no_hp" name="no_hp"  value="<?= $data['no_hp'] ?>" class="form-control" required readonly/>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="nama">Nama yang Berpergian:</label>
-                                                            <textarea id="nama_bp" name="nama_bp"  class="form-control" rows="4" required readonly><?= $data['nama_bp'] ?></textarea>
+                                                                      <div class="mb-3">
+                                                                             <label for="nama">Nama yang Berpergian:</label>
+                                                                             <textarea id="nama_bp" name="nama_bp"  class="form-control" rows="4" required readonly><?= $data['nama_bp'] ?></textarea>
                                                                     </div>
+                                                                </div>
+                                                                <!--grid kiri -->
+                                                                <div class="col-md-6">
                                                                     <div class="mb-3">
                                                                         <label for="keterangan">Keterangan:</label>
                                                                         <textarea id="keterangan" name="keterangan" class="form-control" readonly rows="4"><?= $data['keterangan']  ?></textarea>
                                                                     </div>
                                                                     <div class="mb-3">
-                                                                        <label for="jam">Tanggal Rencana Kembali:</label>
+                                                                        <label for="jam">Tgl Rencana Pergi:</label>
                                                                         <input type="text" id="" name="waktu_pergi" value="<?= $data['waktu_pergi'] ?>" class="form-control" required readonly />
                                                                     </div>
                                                                     <div class="mb-3">
-                                                                        <label for="jam">Tanggal Rencana Kembali:</label>
+                                                                        <label for="jam">Tgl Rencana Kembali:</label>
                                                                         <input type="text" id="" name="waktu_kembali" value="<?= $data['waktu_kembali'] ?>" class="form-control" required readonly />
                                                                     </div>
                                                                     <div class="mb-3">
-                                                                        <label for="kendaraan">Pilih Kendaraan:</label>
+                                                                        <label for="kendaraan">Kendaraan:</label>
                                                                         <select name="id_kendaraan" class="form-control">
                                                                             <?php
-                                                                            $query = "SELECT id_kendaraan, nama_kendaraan, merk_kendaraan FROM kendaraan WHERE status_kendaraan = 'Tersedia'";
+                                                                            $query = "SELECT id_kendaraan, nama_kendaraan, merk_kendaraan, plat_nomor FROM kendaraan WHERE id_kendaraan = '$data[kendaraan_id]'";
                                                                             $result = mysqli_query($koneksi, $query);
-
                                                                             // Loop through the available vehicles and populate the dropdown options
                                                                             while ($row = mysqli_fetch_assoc($result)) {
-                                                                                echo "<option value='{$row['id_kendaraan']}'>{$row['nama_kendaraan']} ({$row['merk_kendaraan']})</option>";
+                                                                                echo "<option value='{$row['id_kendaraan']}'>{$row['nama_kendaraan']} ({$row['merk_kendaraan']}) ({$row['plat_nomor']})</option>";
                                                                             }
                                                                             ?>
                                                                         </select>
@@ -269,7 +259,24 @@ include "../koneksi.php";
                                                                     </div>
                                                                     <div class="mb-3">
                                                                         <label for="tujuan">Saldo:</label>
-                                                                        <input type="number" id="uang-jalan" name="uang_jalan" class="form-control" oninput="formatCurrency(this)" />
+                                                                        <input type="number" id="uang-jalan" name="uang_jalan" value="<?= $data['uang_jalan'] ?>" class=" form-control" oninput="formatCurrency(this)" />
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="jam">Waktu Berangkat:</label>
+                                                                        <?php
+                                                                        // Split datetime value into date and time
+                                                                        $datetime_parts = explode(" ", $data['tgl_pergi']);
+                                                                        $date_part = $datetime_parts[0];
+                                                                        $time_part = $datetime_parts[1];
+                                                                        ?>
+                                                                        <input type="date" class="form-control" name="dari" value="<?= $date_part ?>" />
+                                                                        <input type="time" id="darijam" name="darijam" class="form-control" value="<?= $time_part ?>" />
+                                                                    </div>
+
+                                                                    <div class="mb-3">
+                                                                        <label for="jam">Waktu Kembali:</label>
+                                                                        <input type="date" class="form-control" name="sampai" />
+                                                                        <input type="time" id="darijam" name="sampaijam" class="form-control" />
                                                                     </div>
                                                                 </div>
                                                             </div>

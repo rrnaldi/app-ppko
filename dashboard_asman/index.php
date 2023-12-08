@@ -254,11 +254,11 @@ $running_number = $new_running_number_formatted . '/PPKO/' . $year_month;
                                                                         <textarea id="keterangan" name="keterangan" class="form-control" readonly rows="4"><?= $data['keterangan']  ?></textarea>
                                                                     </div>
                                                                     <div class="mb-3">
-                                                                        <label for="jam">Tanggal Pinjam:</label>
+                                                                        <label for="jam">Tanggal Rencana Pergi:</label>
                                                                         <input type="text" id="" name="waktu_pergi" value="<?= $data['waktu_pergi'] ?>" class="form-control" required readonly />
                                                                     </div>
                                                                     <div class="mb-3">
-                                                                        <label for="jam">Tanggal Kembali:</label>
+                                                                        <label for="jam">Tanggal Rencana Kembali:</label>
                                                                         <input type="text" id="" name="waktu_kembali" value="<?= $data['waktu_kembali'] ?>" class="form-control" required readonly />
                                                                     </div>
                                                                     <div class="mb-3">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2023 at 01:41 PM
+-- Generation Time: Dec 08, 2023 at 02:12 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -41,8 +41,8 @@ CREATE TABLE `kendaraan` (
 
 INSERT INTO `kendaraan` (`id_kendaraan`, `nama_kendaraan`, `merk_kendaraan`, `plat_nomor`, `status_kendaraan`) VALUES
 (1, 'Xenia', 'Daihatsu', 'B 456 FFI', 'Tidak Tersedia'),
-(2, 'Avanza', 'Toyota', 'B 456 FIF', 'Tersedia'),
-(3, 'APV', 'Toyota', 'B 556 FRD', 'Tersedia'),
+(2, 'Avanza', 'Toyota', 'B 456 FIF', 'Tidak Tersedia'),
+(3, 'APV', 'Toyota', 'B 556 FRD', 'Tidak Tersedia'),
 (4, 'Ertiga', 'Suzuki', 'B 214 FKB', 'Tersedia');
 
 -- --------------------------------------------------------
@@ -74,18 +74,19 @@ CREATE TABLE `pengajuan` (
   `supir` varchar(150) NOT NULL,
   `uang_jalan` decimal(10,0) NOT NULL,
   `total_biaya` decimal(10,0) NOT NULL,
-  `sisa_saldo` decimal(10,0) NOT NULL
+  `sisa_saldo` decimal(10,0) NOT NULL,
+  `tgl_pergi` datetime NOT NULL,
+  `tgl_kembali` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pengajuan`
 --
 
-INSERT INTO `pengajuan` (`id_pengajuan`, `id_author`, `tgl_pengajuan`, `kd_transaksi`, `tujuan`, `keperluan`, `bukti`, `waktu_pergi`, `waktu_kembali`, `no_hp`, `nama_bp`, `keterangan`, `tgl_PManager`, `tgl_PUmum`, `tgl_PAsmen`, `tgl_PSpv`, `tgl_selesai`, `status`, `kendaraan_id`, `supir`, `uang_jalan`, `total_biaya`, `sisa_saldo`) VALUES
-(80, 14322566, '2023-11-24', '0005/PPKO/11/2023', 'Ullam cupidatat iure', 'Eum labore molestiae', '655ff41b9fb1a.', '2018-11-06 12:14:00', '1987-05-15 17:59:00', 'In ratione qui eaque', 'Ex molestias sint in', 'Qui nesciunt optio', '2023-11-24', '2023-11-24', '2023-11-24', '2023-11-24', '2023-11-24', 'Peminjaman Selesai', 2, 'Abdul - 0854776812', '300000', '225000', '75000'),
-(81, 14322566, '2023-11-24', '0006/PPKO/11/2023', 'Atque omnis sit con', 'Voluptatum quia aute', '65603c713f29b.', '2001-05-11 19:21:00', '1976-08-01 13:16:00', 'Sint iusto id aut su', 'Pariatur Aut nisi h', 'Ex officiis dolor qu', '2023-11-27', '2023-11-27', '2023-11-27', '2023-11-27', '2023-11-27', 'Peminjaman Selesai', 4, 'Udin - 088477341902', '200000', '125000', '75000'),
-(82, 14322566, '2023-11-27', '0007/PPKO/11/2023', 'Fugiat quo sed at c', 'Et qui voluptas tota', '6564131522e5c.', '1992-12-03 20:47:00', '1988-12-20 06:13:00', 'Pariatur Omnis libe', 'Deleniti sint animi', 'Non qui aut exercita', '2023-11-27', '2023-11-27', '2023-11-27', '2023-11-27', NULL, 'Disetujui Manager GA', 1, 'Abdul - 0854776812', '500000', '0', '0'),
-(83, 12003244, '2023-11-27', '0008/PPKO/11/2023', 'Cupidatat quis nesci', 'Qui eu est ad dolor', '6564406a9ef5d.', '2006-11-13 08:29:00', '1987-11-10 00:19:00', 'Qui et corrupti qui', 'In pariatur Exercit', 'Facere minima rem qu', '2023-11-27', '2023-11-27', '2023-11-27', '2023-11-27', '2023-11-27', 'Peminjaman Selesai', 2, 'Udin - 088477341902', '1500000', '1200000', '300000');
+INSERT INTO `pengajuan` (`id_pengajuan`, `id_author`, `tgl_pengajuan`, `kd_transaksi`, `tujuan`, `keperluan`, `bukti`, `waktu_pergi`, `waktu_kembali`, `no_hp`, `nama_bp`, `keterangan`, `tgl_PManager`, `tgl_PUmum`, `tgl_PAsmen`, `tgl_PSpv`, `tgl_selesai`, `status`, `kendaraan_id`, `supir`, `uang_jalan`, `total_biaya`, `sisa_saldo`, `tgl_pergi`, `tgl_kembali`) VALUES
+(84, 12003244, '2023-12-04', '0001/PPKO/12/2023', 'Quaerat asperiores v', 'Quia ad inventore op', '656d789d046ab.', '2019-06-14 19:25:00', '2001-11-18 20:06:00', 'Dignissimos rerum te', 'Animi distinctio A', 'Occaecat lorem labor', '2023-12-04', '2023-12-04', '2023-12-04', '2023-12-04', '2023-12-04', 'Peminjaman Selesai', 3, 'Udin - 088477341902', '1000000', '850000', '150000', '2023-12-04 14:34:00', '2023-12-05 14:39:00'),
+(85, 12003244, '2023-12-06', '0002/PPKO/12/2023', 'Perspiciatis non de', 'Occaecat distinctio', '656fcdbdb6eda.', '2013-06-15 02:14:00', '2022-06-09 08:10:00', 'Quod vel expedita ma', 'Esse voluptatem veni', 'Soluta impedit face', '2023-12-06', '2023-12-06', '2023-12-06', '2023-12-06', NULL, 'Disetujui Security', 2, 'Abdul - 0854776812', '500000', '0', '0', '2023-12-06 08:43:00', '2023-12-09 08:09:00'),
+(86, 12003244, '2023-12-08', '0003/PPKO/12/2023', 'Culpa accusamus vol', 'Assumenda optio dol', '65726b27225b4.', '2008-09-12 00:47:00', '1999-10-11 21:57:00', 'Velit error asperior', 'Cillum et sed porro ', 'Voluptatibus nihil q', '2023-12-08', '2023-12-08', '2023-12-08', '2023-12-08', NULL, 'Disetujui Security', 3, 'Udin - 088477341902', '500000', '0', '0', '2023-12-08 02:00:00', '2023-12-09 08:09:00');
 
 -- --------------------------------------------------------
 
@@ -121,7 +122,8 @@ INSERT INTO `user` (`id_user`, `nama`, `nik`, `password`, `nama_divisi`, `level`
 (24, 'aldi', 14322566, '123', 'SDM', 'Staff', 'Aktif'),
 (25, 'Fikri', 173299765, '123', 'HC, GA DAN IT', 'Staff', 'Aktif'),
 (30, 'Parjo', 14235684, '123', 'SDM', 'Staff', 'Tidak Aktif'),
-(33, 'ilham', 14325002, '123', 'Bidang Umum', 'ManagerGA', 'Aktif');
+(33, 'ilham', 14325002, '123', 'Bidang Umum', 'ManagerGA', 'Aktif'),
+(34, 'Raka', 18200333, '123', 'HC, GA DAN IT', 'Security', 'Aktif');
 
 --
 -- Indexes for dumped tables
@@ -159,13 +161,13 @@ ALTER TABLE `kendaraan`
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `id_pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id_pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

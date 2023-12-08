@@ -254,6 +254,7 @@ include "../koneksi.php";
                                             <option value="Umum">Umum</option>
                                             <option value="Asman">Asman</option>
                                             <option value="ManagerGA">ManagerGA</option>
+                                            <option value="Security">Security</option>
                                         </select>
                                     </div>
                                 </div>

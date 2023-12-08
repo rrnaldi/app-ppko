@@ -224,13 +224,12 @@ $running_number = $new_running_number_formatted . '/PPKO/' . $year_month;
                                                                         ?>
                                                                     </li>
                                                                     <li class="list-group-item"><strong>Keperluan:</strong> <?= $data['keperluan'] ?></li>
-                                                                    <li class="list-group-item"><strong>Tanggal Berangkat:</strong> <?= $data['waktu_pergi'] ?></li>
-
+                                                                    <li class="list-group-item"><strong>Tgl Rencana Pergi:</strong> <?= $data['waktu_pergi'] ?></li>
+                                                                    <li class="list-group-item"><strong>Tgl Rencana Kembali:</strong> <?= $data['waktu_kembali'] ?></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <ul class="list-group list-group-flush">
-                                                                    <li class="list-group-item"><strong>Tanggal Kembali:</strong> <?= $data['waktu_kembali'] ?></li>
                                                                     <li class="list-group-item"><strong>Nomor HP:</strong> <?= $data['no_hp'] ?></li>
                                                                     <li class="list-group-item"><strong>Nama yang Berpergian:</strong> <?= $data['nama_bp'] ?></li>
                                                                     <li class="list-group-item"><strong>Keterangan:</strong> <?= $data['keterangan'] ?></li>
@@ -239,6 +238,8 @@ $running_number = $new_running_number_formatted . '/PPKO/' . $year_month;
                                                                     <li class="list-group-item"><strong>Plat Nomor:</strong> <?php echo $plat_nomor; ?></li>
                                                                     <li class="list-group-item"><strong>Nama Dan No HP Supir:</strong> <?= $data['supir'] ?></li>
                                                                     <li class="list-group-item"><strong>Biaya Perjalanan:</strong> Rp. <?= number_format($data['total_biaya'], 0, ',', '.') ?></li>
+                                                                    <li class="list-group-item"><strong>Tanggal Berangkat:</strong> <?= $data['tgl_pergi'] ?></li>
+                                                                    <li class="list-group-item"><strong>Tanggal Kembali:</strong> <?= $data['tgl_kembali'] ?></li>
                                                                 </ul>
                                                             </div>
                                                             <div class="modal-footer">

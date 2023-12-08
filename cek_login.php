@@ -40,6 +40,10 @@ if ($cek > 0) {
 				$_SESSION['level'] = "ManagerGA";
 				header("location:dashboard_MGA/dashboard.php");
 				break;
+			case "Security":
+				$_SESSION['level'] = "Security";
+				header("location:dashboard_security/dashboard.php");
+				break;
 			default:
 				header("location:index.php?pesan=gagal");
 				break;

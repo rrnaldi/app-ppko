@@ -59,7 +59,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-primary">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="index.php">
-            Dashboard Dep GA
+            Dashboard Dept GA
         </a>
         <?php
         $nik = $_SESSION['nik'];
@@ -137,7 +137,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                             <div class="card bg-success fw-bold text-white mb-4">
                                 <div class="card-body">Approval Asmen</div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="index.php">View Details</a>
+                                    <a class="small text-white stretched-link" href="#">View Details</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     <p class="card-text">
                                         <?php

@@ -94,7 +94,7 @@
                         } elseif ($data['status'] == 'Peminjaman Selesai') {
                             echo 'Rp. ' . number_format($data['total_biaya'], 0, ',', '.');
                         } else {
-                            echo 'Status tidak dikenali';
+                            echo '-';
                         }
                         ?></li>
                     </td>

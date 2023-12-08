@@ -1,0 +1,21 @@
+     <div class="col-xl-3 col-md-6">
+                            <div class="card bg-primary fw-bold text-white mb-4">
+                                <div class="card-body">Data Transaksi</div>
+                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                    <a class="small text-white stretched-link" href="transaksi.php">View Details</a>
+                                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    <p class="card-text">
+                                    <?php
+                                          $no = 1;
+                                          $nik = $_SESSION['nik'];
+                                          $getdivisi = mysqli_query($koneksi, "select nama_divisi, nama from user where nik='$nik' ");
+                                          // menghitung jumlah data yang ditemukan
+                                          $datadivisi = mysqli_fetch_array($getdivisi);
+                                          $tampil = mysqli_query($koneksi, "SELECT * FROM pengajuan WHERE id_author='$nik' AND status = 'Peminjaman Selesai'  ORDER BY id_pengajuan DESC");
+                                        $jumlah_manager = mysqli_num_rows($tampil);
+                                        echo "<h5 class='card-text'>" . $jumlah_manager . "</h5>";
+                                        ?>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
